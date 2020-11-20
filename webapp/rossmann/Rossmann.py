@@ -82,7 +82,6 @@ class Rossmann(object):
         return df1
 
     def feature_engineering(self, df2):
-
         # year
         df2['year'] = df2['date'].dt.year
 
@@ -121,7 +120,7 @@ class Rossmann(object):
             if x == 'b' else 'christmas' if x == 'c' else 'regular_day')
 
         # Row Filtering
-        df2 = df2[ df2['open'] != 0 ]
+        df2 = df2[df2['open'] != 0]
 
         # Columns Selection
         cols_drop = ['open', 'promo_interval', 'month_map']
@@ -130,7 +129,6 @@ class Rossmann(object):
         return df2
 
     def data_preparation(self, df5):
-
         # competition_distance
         df5['competition_distance'] = self.competition_distance_scaler.fit_transform(
             df5[['competition_distance']].values)
